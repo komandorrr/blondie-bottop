@@ -1,10 +1,8 @@
 name: Good evening
-
 on:
   schedule:
     # 18:00 UTC = 21:00 MSK
     - cron: '0 18 * * *'
-
 jobs:
   send:
     runs-on: ubuntu-latest
