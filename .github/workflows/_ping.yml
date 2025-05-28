@@ -1,5 +1,8 @@
 name: Ping
-on: workflow_dispatch
+
+on:
+  workflow_dispatch:     # ← ключ + двоеточие!
+
 jobs:
   test:
     runs-on: ubuntu-latest
