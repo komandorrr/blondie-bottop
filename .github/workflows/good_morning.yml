@@ -1,1 +1,21 @@
+name: Good morning
 
+on:
+  workflow_dispatch:
+  schedule:
+    # 10:00 по Москве = 07:00 UTC
+    - cron: '0 7 * * *'
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - run: python blondie_bot.py        # без аргументов → утренний список
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
