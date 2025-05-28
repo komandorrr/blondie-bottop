@@ -1,0 +1,4 @@
+name: Good evening
+- cron:  '0 18 * * *'    # 18:00 UTC = 21:00 МСК
+...
+    - run: python blondie_bot.py evening
