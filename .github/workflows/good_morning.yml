@@ -1,10 +1,9 @@
 name: Good morning
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:      # ← ОБЯЗАТЕЛЬНО двоеточие
   schedule:
-    # 10:00 по Москве = 07:00 UTC
-    - cron: '0 7 * * *'
+    - cron: '0 7 * * *'   # 10 :00 МСК = 07 :00 UTC
 
 jobs:
   send:
@@ -15,7 +14,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install requests
-      - run: python blondie_bot.py        # без аргументов → утренний список
+      - run: python blondie_bot.py        # без аргумента → утро
         env:
           TOKEN: ${{ secrets.TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
