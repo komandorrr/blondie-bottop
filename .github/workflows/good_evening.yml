@@ -1,8 +1,9 @@
 name: Good evening
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0 18 * * *'  # каждый день 18:00 UTC
 
 jobs:
   send:
@@ -13,7 +14,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install requests
-      - run: python blondie_bot.py evening
+      - run: python blondie_bot.py evening  # аргумент evening
         env:
           TOKEN: ${{ secrets.TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
