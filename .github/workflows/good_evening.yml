@@ -1,10 +1,9 @@
-name: Good evening
-
-on:
+name: Good evening          # ← строка 1
+                            # ← пустая строка 2 — ОК
+on:                         # ← строка 3
   schedule:
-    # 18:00 UTC = 21:00 MSK
-    - cron: '0 18 * * *'
-
+    - cron: '0 18 * * *'    # 21:00 по Москве
+#           ⋮               # дальше блок jobs
 jobs:
   send:
     runs-on: ubuntu-latest
